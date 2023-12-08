@@ -25,6 +25,18 @@ typedef struct {
 
 } Lanches;
 
+typedef struct {
+
+  const char nome1[MAX_LENGTH];
+
+  const char nome2[MAX_LENGTH];
+
+  const char nome3[MAX_LENGTH];
+
+  const char nome4[MAX_LENGTH];
+
+} Acompanhamentos;
+
 typedef struct{
 
   char copia[MAX_LENGTH];
@@ -36,6 +48,13 @@ struct Pedidos{
   float valor;
 
 }pedidos[5];
+
+
+struct PedidosAcomp{
+
+  float valor;
+
+}pedidosAcomp[5];
 
 struct id{
 
@@ -55,6 +74,18 @@ void valor(){
   pedidos[4].valor = 15.00;
   
 }
+
+void valorAcomp(){
+
+  pedidosAcomp[1].valor = 13.00;
+
+  pedidosAcomp[2].valor = 8.50;
+
+  pedidosAcomp[3].valor = 15.00;
+
+  pedidosAcomp[4].valor = 6.99;
+}
+
 menu(){
 
   system("cls");
@@ -85,6 +116,22 @@ int lanches(){
   printf("\n|                        |                       |");
   printf("\n|========================|=======================|");
 }
+
+int acompanhamentos(){
+
+  system("cls");
+
+  printf("|===============================|==========================|");
+  printf("\n|                             |                          |");
+  printf("\n| 1- Batata-Rustica R$ 13,00  |2- Batata-Frita R$  8,50 |");
+  printf("\n|                             |                          |");
+  printf("\n|=============================|==========================|");
+  printf("\n|                             |                          |");
+  printf("\n| 3- Batata-Canoa R$ 15,00    | 4- Molhos R$ 6,99        |");
+  printf("\n|                             |                          |");
+  printf("\n|=============================|==========================|");
+}
+
 
 int menuPrincipal(){
 	
@@ -132,11 +179,14 @@ int main() {
 	setlocale(LC_ALL, "portuguese");
 	
 	Lanches meusLanches = {"X-Burguer", "X-Salada", "X-Senai", "X-Github"};
-	int opcao, lanche, bebida, remover;
+	Acompanhamentos meusAcompanhamentos = {"Batata-Rustica", "Batata-Frita", "Batata-Canoa", "Molhos"};
+
+	int opcao, lanche, bebida, acompanhamento, remover;
 	float total = 0;
 	
 	Lista Lista[50]; 
   	valor();
+  	valorAcomp();
 
 	fflush(stdin);
 
@@ -293,6 +343,141 @@ int main() {
       		}while(lanche != 0);
 
       		break;
+      		
+   		 case 3:
+		
+		do{
+			system("cls");
+			
+			acompanhamentos ();
+
+      		printf("\n\nEscolha(0 para retornar ao menu): ");
+
+         	while (scanf("%d", &acompanhamento) != 1) {
+
+                while (getchar() != '\n');
+				
+					printf("Caracter invalido, Digite novamente: ");
+
+         }				
+	
+		switch(acompanhamento){
+
+        case 1:
+
+         	system("cls");
+
+          	total += pedidosAcomp[1].valor;
+		
+          	strcpy(Lista[num].copia, meusAcompanhamentos.nome1);
+
+          	quant++;
+	
+          	id[quant].id = num;
+
+          	id[quantP].preco = pedidosAcomp[1].valor;
+
+         	num++;
+
+          	quantP++;
+
+          	printf("%s adicionado\n", meusAcompanhamentos.nome1);
+
+         	system("pause");
+
+         	 break;
+	
+		case 2:
+
+          system("cls");
+
+          total += pedidosAcomp[2].valor;
+
+          strcpy(Lista[num].copia, meusAcompanhamentos.nome2);
+
+          quant++;
+
+          id[quant].id = num;
+
+          id[quantP].preco = pedidosAcomp[2].valor;
+
+          num++;
+
+          quantP++;
+
+          printf("%s adicionado\n", meusAcompanhamentos.nome2);
+
+          system("pause");
+
+        	break;
+          
+        case 3:
+
+          system("cls");
+
+          total += pedidosAcomp[3].valor;
+
+          strcpy(Lista[num].copia, meusAcompanhamentos.nome3);
+
+          quant++;
+
+          id[quant].id = num;
+
+          id[quantP].preco = pedidosAcomp[3].valor;
+
+          num++;
+
+          quantP++;
+
+          printf("%s adicionado\n", meusAcompanhamentos.nome3);
+
+          system("pause");
+
+        	break;
+          
+        case 4:
+
+          system("cls");
+
+          total += pedidosAcomp[4].valor;
+
+          strcpy(Lista[num].copia, meusAcompanhamentos.nome4);
+
+          quant++;
+
+          id[quant].id = num;
+
+          id[quantP].preco = pedidosAcomp[4].valor;
+
+          num++;
+
+          quantP++;
+
+          printf("%s adicionado\n", meusAcompanhamentos.nome4);
+
+          system("pause");
+
+          	break;
+	
+		case 0:
+
+          break;
+
+        default:
+
+          system("clsr");
+
+          printf("Opcao nao existe!!\n");
+
+          system("pause");
+
+          break;
+	
+		}
+
+       }while(acompanhamento != 0);	
+
+        break;  		
     
 	case 5:
            
