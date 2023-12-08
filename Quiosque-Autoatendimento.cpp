@@ -59,15 +59,15 @@ menu(){
 
   system("cls");
 
-  printf("|====================|====================|");
-  printf("\n|                    |                    |");
-  printf("\n| 1- Escolher lanche | 3-                 |");
-  printf("\n|                    |                    |");
-  printf("\n|====================|====================|");
-  printf("\n|                    |                    |");
-  printf("\n| 2- Carrinho        | 4-                 |");
-  printf("\n|                    |                    |");
-  printf("\n|====================|====================|");
+  printf("|====================|====================|====================|");
+  printf("\n|                    |                    |                    |");
+  printf("\n| 1- Sanduíches      | 3- Acompanhamentos | 5- Carrinho        |");
+  printf("\n|                    |                    |                    |");
+  printf("\n|====================|====================|====================|");
+  printf("\n|                    |                    |                    |");
+  printf("\n| 2- Bebidas         | 4- Sobremesas      | 6- Finalizar Pedido|");
+  printf("\n|                    |                    |                    |");
+  printf("\n|====================|====================|====================|");
 
 }
 
@@ -294,7 +294,7 @@ int main() {
 
       		break;
     
-	case 2:
+	case 5:
            
         if(total== 0){
                     
