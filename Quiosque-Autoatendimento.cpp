@@ -37,6 +37,30 @@ typedef struct {
 
 } Acompanhamentos;
 
+typedef struct {
+
+  const char nome1[MAX_LENGTH];
+
+  const char nome2[MAX_LENGTH];
+
+  const char nome3[MAX_LENGTH];
+
+  const char nome4[MAX_LENGTH];
+
+} Bebidas;
+
+typedef struct {
+
+  const char nome1[MAX_LENGTH];
+
+  const char nome2[MAX_LENGTH];
+
+  const char nome3[MAX_LENGTH];
+
+  const char nome4[MAX_LENGTH];
+
+} Sobremesas;
+
 typedef struct{
 
   char copia[MAX_LENGTH];
@@ -48,6 +72,19 @@ struct Pedidos{
   float valor;
 
 }pedidos[5];
+
+struct PedidosBe{
+
+  float valor;
+
+}pedidosBe[5];
+
+
+struct PedidosSobre{
+
+  float valor;
+
+}pedidosSobre[5];
 
 
 struct PedidosAcomp{
@@ -86,6 +123,30 @@ void valorAcomp(){
   pedidosAcomp[4].valor = 6.99;
 }
 
+void valorBe(){
+
+  pedidosBe[1].valor = 7.50;
+
+  pedidosBe[2].valor = 3.50;
+
+  pedidosBe[3].valor = 5.00;
+
+  pedidosBe[4].valor = 4.00;
+
+  }
+  
+  void valorSobre(){
+
+  pedidosSobre[1].valor = 12.00;
+
+  pedidosSobre[2].valor = 17.00;
+
+  pedidosSobre[3].valor = 15.00;
+
+  pedidosSobre[4].valor = 8.00;
+  
+	}
+
 menu(){
 
   system("cls");
@@ -117,6 +178,22 @@ int lanches(){
   printf("\n|========================|=======================|");
 }
 
+void bebidas(){
+
+  system("cls");
+
+  printf("|========================|=====================|");
+  printf("\n|                        |                     |");
+  printf("\n| 1- Coca-Cola R$ 7,50   |   2- Fanta R$ 3,50  |");
+  printf("\n|                        |                     |");
+  printf("\n|========================|=====================|");
+  printf("\n|                        |                     |");
+  printf("\n| 3- Antarctica R$ 5,00  |   4- Sprite R$ 4,00 |");
+  printf("\n|                        |                     |");
+  printf("\n|========================|=====================|");
+
+}
+
 int acompanhamentos(){
 
   system("cls");
@@ -130,6 +207,21 @@ int acompanhamentos(){
   printf("\n| 3- Batata-Canoa R$ 15,00    | 4- Molhos R$ 6,99        |");
   printf("\n|                             |                          |");
   printf("\n|=============================|==========================|");
+}
+
+int sobremesas(){
+
+  system("cls");
+
+  printf("|========================|=======================|");
+  printf("\n|                        |                       |");
+  printf("\n| 1- MilkShake R$ 12,00  |  2- Açai R$ 17,00     |");
+  printf("\n|                        |                       |");
+  printf("\n|========================|=======================|");
+  printf("\n|                        |                       |");
+  printf("\n| 3- Casquinha R$ 15,00  |  4- Sundae R$ 8,00    |");
+  printf("\n|                        |                       |");
+  printf("\n|========================|=======================|");
 }
 
 
@@ -180,13 +272,17 @@ int main() {
 	
 	Lanches meusLanches = {"X-Burguer", "X-Salada", "X-Senai", "X-Github"};
 	Acompanhamentos meusAcompanhamentos = {"Batata-Rustica", "Batata-Frita", "Batata-Canoa", "Molhos"};
-
-	int opcao, lanche, bebida, acompanhamento, remover;
+	Bebidas minhasBebidas = {"Coca-Cola", "Fanta", "Antarctica", "Sprite"};
+	Sobremesas minhasSobremesas = {"MilkShake", "Açai", "Casquinha", "Sundae"};
+	
+	int opcao, lanche, bebida, acompanhamento, sobremesa, remover;
 	float total = 0;
 	
 	Lista Lista[50]; 
   	valor();
   	valorAcomp();
+  	valorBe();
+	valorSobre();
 
 	fflush(stdin);
 
@@ -344,6 +440,143 @@ int main() {
 
       		break;
       		
+      		case 2 :
+
+      do{
+
+      system("cls");
+
+      bebidas();
+
+      printf("\n\nEscolha(0 para retornar ao menu): ");
+
+         while (scanf("%d", &bebida) != 1) {
+
+                   while (getchar() != '\n');
+
+                  printf("Caracter invalido, Digite novamente: ");
+
+         }
+
+      switch(bebida){
+
+        case 1:
+
+          system("cls");
+
+          total += pedidosBe[1].valor;
+
+          strcpy(Lista[num].copia, minhasBebidas.nome1);
+
+          quant++;
+
+          id[quant].id = num;
+
+          id[quantP].preco = pedidosBe[1].valor;
+
+          num++;
+
+          quantP++;
+
+          printf("%s adcionado\n", minhasBebidas.nome1);
+
+          system("pause");
+
+          break;
+
+        case 2:
+
+          system("cls");
+
+          total += pedidosBe[2].valor;
+
+          strcpy(Lista[num].copia, minhasBebidas.nome2);
+
+          quant++;
+
+          id[quant].id = num;
+
+          id[quantP].preco = pedidosBe[2].valor;
+
+          num++;
+
+          quantP++;
+
+          printf("%s adcionado\n", minhasBebidas.nome2);
+
+          system("pause");
+
+          break;
+
+        case 3:
+
+          system("cls");
+
+          total += pedidosBe[3].valor;
+
+          strcpy(Lista[num].copia, minhasBebidas.nome3);
+
+          quant++;
+
+          id[quant].id = num;
+
+          id[quantP].preco = pedidosBe[3].valor;
+
+          num++;
+
+          quantP++;
+
+          printf("%s adcionado\n", minhasBebidas.nome3);
+
+          system("pause");
+
+          break;
+
+        case 4:
+
+          system("cls");
+
+          total += pedidosBe[4].valor;
+
+          strcpy(Lista[num].copia, minhasBebidas.nome4);
+
+          quant++;
+
+          id[quant].id = num;
+
+          id[quantP].preco = pedidosBe[4].valor;
+
+          num++;
+
+          quantP++;
+
+          printf("%s adcionado\n", minhasBebidas.nome4);
+
+          system("pause");
+
+
+          break;
+
+        case 0:
+
+          break;
+
+        default:
+
+          system("clsr");
+
+          printf("Opcao nao existe!!\n");
+
+          system("pause");
+
+          break;
+
+      }
+
+      }while(bebida != 0);	
+
+        break;
+      		
    		 case 3:
 		
 		do{
@@ -476,6 +709,138 @@ int main() {
 		}
 
        }while(acompanhamento != 0);	
+
+        break;
+        
+        case 4:
+		
+		do{
+
+      		system("cls");
+			sobremesas();
+			printf("\n\nEscolha(0 para retornar ao menu): ");
+				
+			while (scanf("%d", &sobremesa) != 1) {
+
+              while (getchar() != '\n');
+				printf("Caracter invalido, Digite novamente: ");
+		      }				
+		
+		switch(sobremesa){
+
+        case 1:
+
+          system("cls");
+
+          total += pedidosSobre[1].valor;
+
+          strcpy(Lista[num].copia, minhasSobremesas.nome1);
+
+          quant++;
+
+          id[quant].id = num;
+
+          id[quantP].preco = pedidosSobre[1].valor;
+
+          num++;
+
+          quantP++;
+
+          printf("%s adicionado\n", minhasSobremesas.nome1);
+
+          system("pause");
+
+          break;
+          
+        case 2:
+
+          system("cls");
+
+          total += pedidosSobre[2].valor;
+
+          strcpy(Lista[num].copia, minhasSobremesas.nome2);
+
+          quant++;
+
+          id[quant].id = num;
+
+          id[quantP].preco = pedidosSobre[2].valor;
+
+          num++;
+
+          quantP++;
+
+          printf("%s adicionado\n", minhasSobremesas.nome2);
+
+          system("pause");
+
+          break;
+          
+        case 3:
+
+          system("cls");
+
+          total += pedidosSobre[3].valor;
+
+          strcpy(Lista[num].copia, minhasSobremesas.nome3);
+
+          quant++;
+
+          id[quant].id = num;
+
+          id[quantP].preco = pedidosSobre[3].valor;
+
+          num++;
+
+          quantP++;
+
+          printf("%s adicionado\n", minhasSobremesas.nome3);
+
+          system("pause");
+
+          break; 
+	
+		 case 4:
+
+          system("cls");
+
+          total += pedidosSobre[4].valor;
+
+          strcpy(Lista[num].copia, minhasSobremesas.nome4);
+
+          quant++;
+
+          id[quant].id = num;
+
+          id[quantP].preco = pedidosSobre[4].valor;
+
+          num++;
+
+          quantP++;
+
+          printf("%s adicionado\n", minhasSobremesas.nome4);
+
+          system("pause");
+
+          break; 
+          
+        case 0:
+
+          break;
+
+        default:
+
+          system("clsr");
+
+          printf("Opcao nao existe!!\n");
+
+          system("pause");
+
+          break;
+	
+		  }
+
+       }	while(sobremesa != 0);	
 
         break;  		
     
