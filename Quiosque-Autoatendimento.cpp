@@ -913,6 +913,35 @@ int main() {
                           }
 
         	break;  
+        	
+        	      	
+    case 6:
+
+        system("cls");
+
+        printf("O seu pedido:\n");
+
+        for(int i = 1; i < quant; i++){
+
+          printf("\nR$ %.2f %s\n", id[i].preco, Lista[i].copia);
+
+        }
+
+        printf("\n%s, o total do seu pedido foi de: R$ %.2f\n", cliente.name, total);
+        
+        system("pause");
+
+        return 0;
+
+        break;
+
+    default:
+
+          printf("\nOpcao invalida\n");
+
+          system("pause");
+
+          break;
    
 	}		
 	
