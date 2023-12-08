@@ -37,6 +37,18 @@ typedef struct {
 
 } Acompanhamentos;
 
+typedef struct {
+
+  const char nome1[MAX_LENGTH];
+
+  const char nome2[MAX_LENGTH];
+
+  const char nome3[MAX_LENGTH];
+
+  const char nome4[MAX_LENGTH];
+
+} Bebidas;
+
 typedef struct{
 
   char copia[MAX_LENGTH];
@@ -48,6 +60,12 @@ struct Pedidos{
   float valor;
 
 }pedidos[5];
+
+struct PedidosBe{
+
+  float valor;
+
+}pedidosBe[5];
 
 
 struct PedidosAcomp{
@@ -86,6 +104,18 @@ void valorAcomp(){
   pedidosAcomp[4].valor = 6.99;
 }
 
+void valorBe(){
+
+  pedidosBe[1].valor = 7.50;
+
+  pedidosBe[2].valor = 3.50;
+
+  pedidosBe[3].valor = 5.00;
+
+  pedidosBe[4].valor = 4.00;
+
+  }
+
 menu(){
 
   system("cls");
@@ -115,6 +145,22 @@ int lanches(){
   printf("\n| 3- X-Senai R$ 25,00    |  4- X-Github R$ 15,00 |");
   printf("\n|                        |                       |");
   printf("\n|========================|=======================|");
+}
+
+void bebidas(){
+
+  system("cls");
+
+  printf("|========================|=====================|");
+  printf("\n|                        |                     |");
+  printf("\n| 1- Coca-Cola R$ 7,50   |   2- Fanta R$ 3,50  |");
+  printf("\n|                        |                     |");
+  printf("\n|========================|=====================|");
+  printf("\n|                        |                     |");
+  printf("\n| 3- Antarctica R$ 5,00  |   4- Sprite R$ 4,00 |");
+  printf("\n|                        |                     |");
+  printf("\n|========================|=====================|");
+
 }
 
 int acompanhamentos(){
@@ -180,6 +226,7 @@ int main() {
 	
 	Lanches meusLanches = {"X-Burguer", "X-Salada", "X-Senai", "X-Github"};
 	Acompanhamentos meusAcompanhamentos = {"Batata-Rustica", "Batata-Frita", "Batata-Canoa", "Molhos"};
+	Bebidas minhasBebidas = {"Coca-Cola", "Fanta", "Antarctica", "Sprite"};
 
 	int opcao, lanche, bebida, acompanhamento, remover;
 	float total = 0;
@@ -187,6 +234,7 @@ int main() {
 	Lista Lista[50]; 
   	valor();
   	valorAcomp();
+  	valorBe();
 
 	fflush(stdin);
 
@@ -343,6 +391,143 @@ int main() {
       		}while(lanche != 0);
 
       		break;
+      		
+      		case 2 :
+
+      do{
+
+      system("cls");
+
+      bebidas();
+
+      printf("\n\nEscolha(0 para retornar ao menu): ");
+
+         while (scanf("%d", &bebida) != 1) {
+
+                   while (getchar() != '\n');
+
+                  printf("Caracter invalido, Digite novamente: ");
+
+         }
+
+      switch(bebida){
+
+        case 1:
+
+          system("cls");
+
+          total += pedidosBe[1].valor;
+
+          strcpy(Lista[num].copia, minhasBebidas.nome1);
+
+          quant++;
+
+          id[quant].id = num;
+
+          id[quantP].preco = pedidosBe[1].valor;
+
+          num++;
+
+          quantP++;
+
+          printf("%s adcionado\n", minhasBebidas.nome1);
+
+          system("pause");
+
+          break;
+
+        case 2:
+
+          system("cls");
+
+          total += pedidosBe[2].valor;
+
+          strcpy(Lista[num].copia, minhasBebidas.nome2);
+
+          quant++;
+
+          id[quant].id = num;
+
+          id[quantP].preco = pedidosBe[2].valor;
+
+          num++;
+
+          quantP++;
+
+          printf("%s adcionado\n", minhasBebidas.nome2);
+
+          system("pause");
+
+          break;
+
+        case 3:
+
+          system("cls");
+
+          total += pedidosBe[3].valor;
+
+          strcpy(Lista[num].copia, minhasBebidas.nome3);
+
+          quant++;
+
+          id[quant].id = num;
+
+          id[quantP].preco = pedidosBe[3].valor;
+
+          num++;
+
+          quantP++;
+
+          printf("%s adcionado\n", minhasBebidas.nome3);
+
+          system("pause");
+
+          break;
+
+        case 4:
+
+          system("cls");
+
+          total += pedidosBe[4].valor;
+
+          strcpy(Lista[num].copia, minhasBebidas.nome4);
+
+          quant++;
+
+          id[quant].id = num;
+
+          id[quantP].preco = pedidosBe[4].valor;
+
+          num++;
+
+          quantP++;
+
+          printf("%s adcionado\n", minhasBebidas.nome4);
+
+          system("pause");
+
+
+          break;
+
+        case 0:
+
+          break;
+
+        default:
+
+          system("clsr");
+
+          printf("Opcao nao existe!!\n");
+
+          system("pause");
+
+          break;
+
+      }
+
+      }while(bebida != 0);	
+
+        break;
       		
    		 case 3:
 		
