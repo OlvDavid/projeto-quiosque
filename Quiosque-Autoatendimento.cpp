@@ -190,7 +190,9 @@ int sobremesas() {
 }
 
 int menuPrincipal() {
-    int options;
+    system("cls");
+	
+	int options;
 
     printf("|====================|====================|\n");
     printf("|                    |                    |\n");
@@ -218,7 +220,10 @@ int menuPrincipal() {
             break;
 
         default:
-            system("cls");
+            
+			fflush(stdin);
+			
+			system("cls");
 
             printf("Opção inválida. Tente Novamente.\n");
 
@@ -237,7 +242,7 @@ int main() {
     Bebidas minhasBebidas = {"Coca-Cola", "Fanta", "Antarctica", "Sprite"};
     Sobremesas minhasSobremesas = {"MilkShake", "Açai", "Casquinha", "Sundae"};
 
-    int opcao, lanche, bebida, acompanhamento, sobremesa, remover;
+    int opcao, lanche, bebida, acompanhamento, sobremesa, remover, options;
     float total = 0;
 
     Lista Lista[50];
@@ -268,12 +273,13 @@ int main() {
                     
 					lanches();
                     printf("\n\nEscolha(0 para retornar ao menu): ");
-
+                  
                     while (scanf("%d", &lanche) != 1) {
                         while (getchar() != '\n');
                         printf("Caracter invalido, Digite novamente: ");
+                                              
                     }
-
+                    
                     switch (lanche) {
                         case 1:
                             
@@ -688,7 +694,10 @@ int main() {
 
             			while (scanf("%d", &remover) != 1) {
                 			while (getchar() != '\n');
-                			printf("Caracter inválido, Digite novamente: ");
+                			
+							fflush(stdin);
+							
+							printf("Caracter inválido, Digite novamente: ");
            				}
 
             			if (remover >= 1 && remover < quant) {
@@ -705,7 +714,6 @@ int main() {
                 			quant--;
             			
 						} else {
-                			printf("\nBom Pedido!!");
                 			
 							system("pause");
             			}
@@ -728,10 +736,29 @@ int main() {
         			printf("\nR$ %.2f %s\n", id[i].preco, Lista[i].copia);
     			}
 
-    			printf("\n%s, o total do seu pedido foi de: R$ %.2f\n", cliente.name, total);
+    			printf("\n%s, o total do seu pedido foi de: R$ %.2f\n\n", cliente.name, total);
     			
 				system("pause");
-    			return 0;
+    			
+    			system("cls");
+				
+				printf("1 -> Voltar ao Menu\n");
+    			printf("2 -> Sair\n");
+				scanf("%d", &options);
+	
+				switch(options){
+					case 1: 
+						return main();
+						break;
+						
+						case 2:
+						exit(0);
+						break;
+					
+					default:
+						printf("Opção Invalida. Tente novamente.\n");
+						break;
+				}
     		
 			break;
 
