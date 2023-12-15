@@ -193,15 +193,16 @@ int menuPrincipal() {
     system("cls");
 	
 	int options;
+	char senha_correta[] = "admin";
+	char senha_usuario[20];
 
-    printf("|====================|====================|\n");
-    printf("|                    |                    |\n");
-    printf("|  1- FAZER PEDIDO   |     2- SAIR        |\n");
-    printf("|                    |                    |\n");
-    printf("|====================|====================|\n");
+    printf("|====================|====================|=============|\n");
+    printf("|                    |                    |             |\n");
+    printf("|  1- FAZER PEDIDO   |     2- SAIR        |  3- Pedidos |\n");
+    printf("|                    |                    |             |\n"); 
+    printf("|====================|====================|=============|\n");
     printf("ESCOLHA UMA OPÇÃO: ");
     scanf("%d", &options);
-
     switch (options) {
         case 1:
             system("cls");
@@ -218,6 +219,25 @@ int menuPrincipal() {
 
             exit(0);
             break;
+            
+        case 3:
+		    system("cls");
+		    
+		    printf("=============PEDIDOS DOS CLIENTES==============");
+			printf("\nOlá, atendente, informe sua senha para ter acesso aos últimos pedidos! :\n");
+    		scanf("%s", senha_usuario);
+    		
+  		  if (strcmp(senha_usuario, senha_correta)== 0) {
+      		  printf("Senha correta! Acesso concedido.\n");
+			} else{
+			  printf("Senha incorreta! Acesso negado.\n");
+			}   
+			 system("pause");
+			 
+			 return menuPrincipal();
+			 
+			break;
+		    
 
         default:
             
