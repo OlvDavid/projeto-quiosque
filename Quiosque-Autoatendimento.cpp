@@ -6,6 +6,7 @@
 #define MAX_LENGTH 50
 
 int quant = 1, quantP = 1, num = 1;
+float total = 0;
 
 struct Cliente {
     
@@ -87,6 +88,32 @@ struct id {
 
 } id[50];
 
+void mostrarPedidos() {
+    
+	FILE *file;
+    file = fopen("pedido.bin", "rb"); 
+
+    if (file == NULL) {
+        printf("Nenhum pedido foi encontrado.\n");
+        return;
+    }
+
+    float orderTotal;
+    fread(&orderTotal, sizeof(float), 1, file); 
+
+    printf("Último pedido:\n");
+    printf("Total: R$ %.2f\n", orderTotal);
+
+    while (fread(&orderTotal, sizeof(float), 1, file) == 1) {
+        char itemName[MAX_LENGTH];
+        fread(itemName, sizeof(char), MAX_LENGTH, file);
+        printf("R$ %.2f %s\n", orderTotal, itemName);
+    }
+
+    fclose(file);
+}
+
+
 void valor() {
    
     pedidos[1].valor = 20.00;
@@ -118,6 +145,7 @@ void valorSobre() {
     pedidosSobre[3].valor = 15.00;
     pedidosSobre[4].valor = 8.00;
 }
+
 
 void menu() {
     system("cls");
@@ -230,6 +258,11 @@ int menuPrincipal() {
     		
   		  if (strcmp(senha_usuario, senha_correta)== 0) {
       		  printf("Senha correta! Acesso concedido.\n");
+      		  
+      		  system("cls");
+      		  
+      		  mostrarPedidos();
+      		  
 			} else{
 			  printf("Senha incorreta! Acesso negado.\n");
 			}   
@@ -757,6 +790,23 @@ int main() {
     			}
 
     			printf("\n%s, o total do seu pedido foi de: R$ %.2f\n\n", cliente.name, total);
+    			
+    			FILE *file;
+    			file = fopen("pedido.bin", "wb"); 
+
+    			if (file == NULL) {
+        		printf("Erro ao abrir o arquivo para salvar o pedido.\n");
+        		
+   				 }
+
+    			fwrite(&total, sizeof(float), 1, file); 
+    			for (int i = 1; i < quant; i++) {
+        		fwrite(&id[i].preco, sizeof(float), 1, file); 
+       			fwrite(Lista[i].copia, sizeof(char), MAX_LENGTH, file); 
+    			
+				}
+
+    			fclose(file);
     			
 				system("pause");
     			
