@@ -86,7 +86,8 @@ struct id {
 	int id;
     float preco;
 
-} id[50];
+};
+struct id id[50];
 
 void mostrarPedidos() {
     
@@ -790,6 +791,7 @@ int main() {
     			}
 
     			printf("\n%s, o total do seu pedido foi de: R$ %.2f\n\n", cliente.name, total);
+    		
     			
     			FILE *file;
     			file = fopen("pedido.bin", "wb"); 
@@ -808,6 +810,11 @@ int main() {
 
     			fclose(file);
     			
+    			total = 0;
+                quant = 1;
+                quantP = 1;
+                num = 1;
+    					
 				system("pause");
     			
     			system("cls");
