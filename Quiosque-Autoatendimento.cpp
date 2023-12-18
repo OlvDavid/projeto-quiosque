@@ -312,7 +312,7 @@ int main() {
     do {
         menu();
 
-        printf("\n\nOpcao: ");
+        printf("\n\nOpcão: ");
 
         while (scanf("%d", &opcao) != 1) {
             while (getchar() != '\n');
@@ -819,6 +819,7 @@ int main() {
     			
     			system("cls");
     			
+    			
     			   			    			
     			printf("Informe o método de pagamento:\n");				
 				printf("1 -> Dinheiro\n");
@@ -830,7 +831,9 @@ int main() {
     			
     			system("cls");
     			
-				
+    			
+    			printf("Muito Obrigado pela Preferência!!\n\n");
+ 						
 				printf("1 -> Voltar ao Menu\n");
     			printf("2 -> Sair\n");
 				scanf("%d", &options);
