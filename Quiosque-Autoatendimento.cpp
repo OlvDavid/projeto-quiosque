@@ -169,11 +169,11 @@ int lanches() {
     printf("|                        |                       |\n");
     printf("| 1- X-Burguer R$ 20,00  |  2- X-Salada R$ 30,00 |\n");
     printf("|                        |                       |\n");
-    printf("|========================|=======================|\n");
-    printf("|                        |                       |\n");
-    printf("| 3- X-Senai R$ 25,00    |  4- X-Github R$ 15,00 |\n");
-    printf("|                        |                       |\n");
-    printf("|========================|=======================|\n");
+    printf("|========================|=======================|===========|\n");
+    printf("|                        |                       |           |\n");
+    printf("| 3- X-Senai R$ 25,00    |  4- X-Github R$ 15,00 | 0- Voltar |\n");
+    printf("|                        |                       |           |\n");
+    printf("|========================|=======================|===========|\n");
 }
 
 void bebidas() {
@@ -183,11 +183,11 @@ void bebidas() {
     printf("|                        |                     |\n");
     printf("| 1- Coca-Cola R$ 7,50   |   2- Fanta R$ 3,50  |\n");
     printf("|                        |                     |\n");
-    printf("|========================|=====================|\n");
-    printf("|                        |                     |\n");
-    printf("| 3- Antarctica R$ 5,00  |   4- Sprite R$ 4,00 |\n");
-    printf("|                        |                     |\n");
-    printf("|========================|=====================|\n");
+    printf("|========================|=====================|===========|\n");
+    printf("|                        |                     |           |\n");
+    printf("| 3- Antarctica R$ 5,00  |   4- Sprite R$ 4,00 | 0- Voltar |\n");
+    printf("|                        |                     |           |\n");
+    printf("|========================|=====================|===========|\n");
 }
 
 int acompanhamentos() {
@@ -197,11 +197,11 @@ int acompanhamentos() {
     printf("|                             |                          |\n");
     printf("| 1- Batata-Rustica R$ 13,00  | 2- Batata-Frita R$  8,50 |\n");
     printf("|                             |                          |\n");
-    printf("|=============================|==========================|\n");
-    printf("|                             |                          |\n");
-    printf("| 3- Batata-Canoa R$ 15,00    | 4- Molhos R$ 6,99        |\n");
-    printf("|                             |                          |\n");
-    printf("|=============================|==========================|\n");
+    printf("|=============================|==========================|===========|\n");
+    printf("|                             |                          |           |\n");
+    printf("| 3- Batata-Canoa R$ 15,00    | 4- Molhos R$ 6,99        | 0- Voltar |\n");
+    printf("|                             |                          |           |\n");
+    printf("|=============================|==========================|===========|\n");
 }
 
 int sobremesas() {
@@ -211,11 +211,11 @@ int sobremesas() {
     printf("|                        |                       |\n");
     printf("| 1- MilkShake R$ 12,00  |  2- Açai R$ 17,00     |\n");
     printf("|                        |                       |\n");
-    printf("|========================|=======================|\n");
-    printf("|                        |                       |\n");
-    printf("| 3- Casquinha R$ 15,00  |  4- Sundae R$ 8,00    |\n");
-    printf("|                        |                       |\n");
-    printf("|========================|=======================|\n");
+    printf("|========================|=======================|===========|\n");
+    printf("|                        |                       |           |\n");
+    printf("| 3- Casquinha R$ 15,00  |  4- Sundae R$ 8,00    | 0- Voltar |\n");
+    printf("|                        |                       |           |\n");
+    printf("|========================|=======================|===========|\n");
 }
 
 int menuPrincipal() {
@@ -254,7 +254,7 @@ int menuPrincipal() {
 		    system("cls");
 		    
 		    printf("=============PEDIDOS DOS CLIENTES==============");
-			printf("\nOl?, atendente, informe sua senha para ter acesso aos ?ltimos pedidos! :\n");
+			printf("\nOlá, atendente, informe sua senha para ter acesso aos últimos pedidos! :\n");
     		scanf("%s", senha_usuario);
     		
   		  if (strcmp(senha_usuario, senha_correta)== 0) {
@@ -296,7 +296,7 @@ int main() {
     Bebidas minhasBebidas = {"Coca-Cola", "Fanta", "Antarctica", "Sprite"};
     Sobremesas minhasSobremesas = {"MilkShake", "Açai", "Casquinha", "Sundae"};
 
-    int opcao, lanche, bebida, acompanhamento, sobremesa, remover, options;
+    int opcao, lanche, bebida, acompanhamento, sobremesa, remover, options, pagamento;
     float total = 0;
 
     Lista Lista[50];
@@ -326,7 +326,7 @@ int main() {
 					system("cls");
                     
 					lanches();
-                    printf("\n\nEscolha(0 para retornar ao menu): ");
+                    printf("\n\nEscolha uma opção: ");
                   
                     while (scanf("%d", &lanche) != 1) {
                         while (getchar() != '\n');
@@ -411,7 +411,7 @@ int main() {
                             
 							system("cls");
                             
-							printf("Opcao nao existe!!\n");
+							printf("Opção não existe!!\n");
                            
 						    system("pause");
                             
@@ -428,7 +428,7 @@ int main() {
 					system("cls");
         			
 					bebidas();
-        			printf("\n\nEscolha(0 para retornar ao menu): ");
+        			printf("\n\nEscolha uma opção: ");
 
        				while (scanf("%d", &bebida) != 1) {
             			while (getchar() != '\n');
@@ -512,7 +512,7 @@ int main() {
                 		
 							system("cls");
                 		
-							printf("Opcao nao existe!!\n");
+							printf("Opção não existe!!\n");
                 		
 							system("pause");
                 		
@@ -530,7 +530,7 @@ int main() {
 					system("cls");
        				
 					    acompanhamentos();
-        				printf("\n\nEscolha(0 para retornar ao menu): ");
+        				printf("\n\nEscolha uma opção: ");
 
         				while (scanf("%d", &acompanhamento) != 1) {
             				while (getchar() != '\n');
@@ -632,7 +632,7 @@ int main() {
 					system("cls");
         			
 					sobremesas();
-        			printf("\n\nEscolha(0 para retornar ao menu): ");
+        			printf("\n\nEscolha uma opção: ");
 
         			while (scanf("%d", &sobremesa) != 1) {
             			while (getchar() != '\n');
@@ -818,6 +818,18 @@ int main() {
 				system("pause");
     			
     			system("cls");
+    			
+    			   			    			
+    			printf("Informe o método de pagamento:\n");				
+				printf("1 -> Dinheiro\n");
+    			printf("2 -> Cartão\n");
+    			printf("3 -> Pix\n");
+				scanf("%d", &pagamento);
+				
+				system("pause");
+    			
+    			system("cls");
+    			
 				
 				printf("1 -> Voltar ao Menu\n");
     			printf("2 -> Sair\n");
