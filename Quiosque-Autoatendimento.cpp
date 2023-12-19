@@ -254,7 +254,7 @@ int menuPrincipal() {
 		    system("cls");
 		    
 		    printf("=============PEDIDOS DOS CLIENTES==============");
-			printf("\nOlá, atendente, informe sua senha para ter acesso aos últimos pedidos! :\n");
+			printf("\nOlá, atendente, informe sua senha para ter acesso ao último pedido! :\n");
     		scanf("%s", senha_usuario);
     		
   		  if (strcmp(senha_usuario, senha_correta)== 0) {
